@@ -7,16 +7,7 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>ArtistsWeb - Home</title>
-        <meta
-          name="description"
-          content="Welcome to ArtistsWeb - Where art meets technology."
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <Header />
-      <main>
+      <main className="container mx-auto px-9">
         <HeroSection />
         <Features />
       </main>
