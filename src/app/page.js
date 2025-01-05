@@ -3,6 +3,7 @@ import Features from "../components/Features";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import WorkSection from "@/components/WorkSection";
+import YourDigitalPartner from "@/components/YourDigitalPatner";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
         <NavBar/>
         <HeroSection />
         <WorkSection />
+        <YourDigitalPartner/>
         <Features />
         <Footer />
       </main>
