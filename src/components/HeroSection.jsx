@@ -1,11 +1,10 @@
 import { Button } from "@/components/ui/button"
-import Link from "next/link"
 
 
-export default function Hero() {
+export default function HeroSection() {
   
   return (
-    <section className="min-h-[80vh] flex flex-col justify-center px-4 md:px-6 lg:px-8 max-w-7xl mt-11">
+    <section className="min-h-[100vh] flex flex-col justify-center px-8 mt-16">
       {/* Main heading */}
       <div className="flex flex-col justify-left">
         <h1 className="text-8xl font-semibold tracking-tight">
