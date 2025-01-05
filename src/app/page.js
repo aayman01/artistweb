@@ -10,8 +10,8 @@ export default function Home() {
       <main className="container mx-auto px-9">
         <HeroSection />
         <Features />
+        <Footer />
       </main>
-      <Footer />
     </>
   );
 }
