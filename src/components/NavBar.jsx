@@ -1,88 +1,5 @@
 "use client";
 
-// import { useScrollDirection } from "@/hooks/useScrollDirection";
-// import { motion, AnimatePresence } from "framer-motion";
-// import { Equal } from "lucide-react";
-// import Link from "next/link";
-
-// const NavBar = () => {
-//   const { scrollDirection, isScrolled } = useScrollDirection();
-
-//   return (
-//     <nav
-//       className={`fixed w-full transition-all duration-300 ${
-//         scrollDirection === "down" ? "-top-[100px]" : "top-0"
-//       } ${
-//         isScrolled
-//           ? "bg-white/80 backdrop-blur-md shadow-sm"
-//           : "bg-transparent"
-//       }`}
-//     >
-//       <div className="mx-[90px] px-4 py-6 flex justify-between items-center h-[100px]">
-//         <Link href="/" className="text-2xl font-bold">
-//           ML
-//         </Link>
-//         <div className="flex items-center gap-4">
-//           <motion.button
-//             whileHover="hover"
-//             initial="initial"
-//             className="relative bg-white hover:bg-white text-[#545cff] rounded-full px-6 py-3 text-base font-medium overflow-hidden group transform transition-all duration-500 hover:scale-110 w-[143px] h-[38px] border border-[#545cff]"
-//           >
-//             <motion.span
-//               variants={{
-//                 initial: { y: 0, opacity: 1 },
-//                 hover: { y: -20, opacity: 0 }
-//               }}
-//               transition={{ duration: 0.3, ease: "easeOut" }}
-//               className="absolute w-full text-center top-1/2 left-0 -translate-y-1/2"
-//             >
-//               Get in touch
-//             </motion.span>
-//             <motion.span
-//               variants={{
-//                 initial: { y: 20, opacity: 0 },
-//                 hover: { y: 0, opacity: 1 }
-//               }}
-//               transition={{ duration: 0.3, ease: "easeOut", delay: 0.1 }}
-//               className="absolute w-full text-center top-1/2 left-0 -translate-y-1/2"
-//             >
-//               Get in touch
-//             </motion.span>
-//           </motion.button>
-
-//           <motion.button
-//             whileHover="hover"
-//             initial="initial"
-//             className="p-2 rounded-full border border-[#71777e] inline-block relative w-[40px] h-[40px]"
-//           >
-//             <motion.span
-//               variants={{
-//                 initial: { y: 0, opacity: 1 },
-//                 hover: { y: -20, opacity: 0 }
-//               }}
-//               transition={{ duration: 0.3, ease: "easeOut" }}
-//               className="absolute w-full flex justify-center items-center top-1/2 left-0 -translate-y-1/2"
-//             >
-//               <Equal className="h-6 w-6" />
-//             </motion.span>
-//             <motion.span
-//               variants={{
-//                 initial: { y: 20, opacity: 0 },
-//                 hover: { y: 0, opacity: 1 }
-//               }}
-//               transition={{ duration: 0.3, ease: "easeOut", delay: 0.1 }}
-//               className="absolute w-full flex justify-center items-center top-1/2 left-0 -translate-y-1/2"
-//             >
-//               <Equal className="h-6 w-6" />
-//             </motion.span>
-//           </motion.button>
-//         </div>
-//       </div>
-//     </nav>
-//   );
-// };
-
-// export default NavBar;
 import { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { Button } from "./ui/button";
@@ -122,7 +39,9 @@ const Navbar = () => {
   return (
     <motion.div
       animate={controls}
-      className="fixed top-0 left-0 w-full bg-transparent z-50"
+      className={`fixed top-0 left-0 w-full z-50 transition-colors duration-500 ${
+        lastScrollY ? "bg-[#1111] backdrop-blur-md" : "bg-transparent"
+      }`}
     >
       <div className="flex justify-between items-center py-6 px-8">
         {/* Left Section */}
