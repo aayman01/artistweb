@@ -5,7 +5,7 @@ import { Facebook, Instagram, Twitter } from "lucide-react";
 export default function Footer() {
   return (
     <footer className="w-full px-4 py-16 md:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
+      <div className="">
         {/* Main Footer Content */}
         <div className="flex items-center justify-between gap-4 mb-16">
           {/* Left Section */}
@@ -26,37 +26,40 @@ export default function Footer() {
 
           {/* Right Section */}
           <div className="flex flex-col items-center justify-start">
-            <div className="flex justify-end mb-16">
-              <div className="bg-black text-[#ecf1f4] rounded-3xl px-10 py-6 flex justify-between items-center w-[430px]">
+            <div className="flex justify-center mb-16 h-20">
+              <div className="bg-black text-[#ecf1f4] rounded-3xl px-10 py-4 flex justify-between items-center w-[430px]">
                 <span className="text-lg">Follow us</span>
-                <div className="flex items-center gap-4">
+                <div className="flex justify-center items-center gap-2 text-left">
                   <Link
                     href="https://instagram.com"
-                    className="hover:opacity-80"
+                    className="w-[43px] h-[43px] flex items-center justify-center hover:border-2 hover:border-[#545cff] rounded-full transition-all ease-in-out duration-100"
                   >
-                    <Instagram size={24} />
+                    <Instagram size={27} />
                   </Link>
                   <Link
                     href="https://facebook.com"
-                    className="hover:opacity-80"
+                    className="w-[43px] h-[43px] flex items-center justify-center hover:border-2 hover:border-[#545cff] rounded-full transition-all ease-in-out duration-100"
                   >
-                    <Facebook size={24} />
+                    <Facebook size={27} />
                   </Link>
-                  <Link href="https://twitter.com" className="hover:opacity-80">
-                    <Twitter size={24} />
+                  <Link
+                    href="https://twitter.com"
+                    className="w-[43px] h-[43px] flex items-center justify-center hover:border-2 hover:border-[#545cff] rounded-full transition-all ease-in-out duration-100"
+                  >
+                    <Twitter size={27} />
                   </Link>
                   <Link
                     href="https://www.awwwards.com"
-                    className="hover:opacity-80"
+                    className="w-[43px] h-[43px] flex items-center justify-center hover:border-2 hover:border-[#545cff] rounded-full transition-all ease-in-out duration-100"
                   >
-                    <span className="font-semibold">W.</span>
+                    <span className="text-[24px]">W</span>
                   </Link>
                 </div>
               </div>
             </div>
-            <div className="bg-[#ecf1f4] rounded-3xl p-8 w-[430px]">
+            <div className="bg-[#ecf1f4] rounded-3xl p-8 w-[430px] text-center space-y-4">
               <h3 className="text-3xl font-semibold mb-2">Let's get started</h3>
-              <p className="text-lg text-gray-600 mb-6">
+              <p className="text-lg text-gray-600 pb-7">
                 We'd love to hear about your project.
               </p>
               <Button className="relative bg-[#545cff] hover:bg-[#545cff] text-white rounded-full px-9 py-7 text-xl font-medium font-Onest overflow-hidden group transform transition-all duration-500 hover:scale-110 w-full h-[60px]">
@@ -78,13 +81,10 @@ export default function Footer() {
           </p>
 
           <div className="flex flex-wrap gap-8">
-            <Link
-              href="/privacy-policy"
-              className="text-gray-500 hover:text-gray-700"
-            >
+            <Link href="/" className="text-gray-500 hover:text-gray-700">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="text-gray-500 hover:text-gray-700">
+            <Link href="/" className="text-gray-500 hover:text-gray-700">
               Terms & Conditions
             </Link>
           </div>

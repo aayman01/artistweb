@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <>
-      <main className="container mx-auto px-9">
+      <main className="max-w-7xl mx-auto px-9">
         <HeroSection />
         <Features />
         <Footer />
