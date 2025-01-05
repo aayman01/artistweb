@@ -1,7 +1,8 @@
 import NavBar from "@/components/NavBar";
 import Features from "../components/Features";
-import HeroSection from "../components/HeroSection";
+// import HeroSection from "../components/HeroSection";
 import Footer from "@/components/Footer";
+import HeroSection from "@/components/HeroSection";
 
 export default function Home() {
   return (
