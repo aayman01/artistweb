@@ -31,7 +31,7 @@ const Navbar = () => {
 
   useEffect(() => {
     controls.start({
-      y: isVisible ? 0 : -90, // Adjust height of navbar if needed
+      y: isVisible ? 0 : -75, // Adjust height of navbar if needed
       transition: { duration: 0.5, ease: "easeInOut" },
     });
   }, [isVisible, controls]);
@@ -43,7 +43,7 @@ const Navbar = () => {
         lastScrollY ? "bg-[#1111] backdrop-blur-md" : "bg-transparent"
       }`}
     >
-      <div className="flex justify-between items-center py-6 px-8">
+      <div className="flex justify-between items-center py-4 px-8">
         {/* Left Section */}
         <div className="text-2xl font-bold pl-9">
           <div className="">
@@ -70,7 +70,7 @@ const Navbar = () => {
         </div>
 
         {/* Right Section */}
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-3 pr-9">
           <Button className="relative bg-transparent text-black hover:bg-transparent hover:text-black border border-[#545cff] rounded-full px-5 py-4 text-lg font-normal font-Onest overflow-hidden group transform transition-all duration-500 w-[150px] h-[40px] shadow-none">
             {/* Initial Text */}
             <span className="absolute inset-0 flex items-center justify-center transform transition-transform duration-500 group-hover:translate-y-[-100%]">
