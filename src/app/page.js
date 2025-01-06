@@ -6,7 +6,7 @@ import YourDigitalPartner from "@/components/YourDigitalPatner";
 import {ScrollText} from "@/components/ScrollText";
 import Services from "@/components/Services";
 import DigitalGoal from "@/components/DigitalGoal";
-
+import WeAreGood from "@/components/WeAreGood";
 export default function Home() {
   return (
     <>
@@ -18,6 +18,7 @@ export default function Home() {
         <YourDigitalPartner />
         <ScrollText />
         <DigitalGoal />
+        <WeAreGood />
         <Footer />
       </main>
     </>
