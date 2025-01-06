@@ -5,6 +5,7 @@ import WorkSection from "@/components/WorkSection";
 import YourDigitalPartner from "@/components/YourDigitalPatner";
 import {ScrollText} from "@/components/ScrollText";
 import Services from "@/components/Services";
+import DigitalGoal from "@/components/DigitalGoal";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <Services />
         <YourDigitalPartner />
         <ScrollText />
+        <DigitalGoal />
         <Footer />
       </main>
     </>

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function YourDigitalPartner() {
   return (
-    <section className="flex flex-col md:flex-row justify-center items-end px-8 py-12 bg-white gap-6 mt-36">
+    <section className="flex flex-col md:flex-row justify-center items-end px-8 py-12 bg-white gap-6 mt-28">
       {/* Left Section */}
       <motion.div
         className="w-1/2"
@@ -48,7 +48,7 @@ export default function YourDigitalPartner() {
           className="bg-[#1111] p-6 rounded-3xl h-[200px] flex justify-center items-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
         >
           <div className="flex flex-col sm:flex-row justify-center items-end text-center gap-6 sm:gap-0">
             <div>

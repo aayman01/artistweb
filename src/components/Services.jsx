@@ -73,7 +73,7 @@ const Services = () => {
       initial="hidden"
       animate="visible"
       variants={containerVariants}
-      className="bg-black text-white px-[90px] py-36 bg-[radial-gradient(circle_at_75%_140%,_#545cff_0%,_transparent_35%)]"
+      className="bg-black text-white px-8 py-36 bg-[radial-gradient(circle_at_75%_140%,_#545cff_0%,_transparent_35%)]"
     >
       <div>
         <motion.h2 
@@ -84,24 +84,50 @@ const Services = () => {
         </motion.h2>
 
         {/* Services List */}
-        <div className="space-y-6 mb-16">
+        <div className="space-y-6 mb-10">
           {services.map((service) => (
             <motion.div
               key={service.id}
               variants={itemVariants}
-              className="flex justify-between items-center group cursor-pointer"
+              className="flex justify-between items-center"
+              whileHover="hover"
+              initial="initial"
+              animate="initial"
             >
-              <h3 className="text-[68px] font-semibold leading-[94px] group-hover:text-[63px] transition-all duration-500">
+              <motion.h3
+                variants={{
+                  initial: { scale: 1 },
+                  hover: { scale: 0.8 }
+                }}
+                transition={{ 
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 20
+                }}
+                className="text-5xl font-semibold leading-[80px] origin-left"
+              >
                 {service.title}
-              </h3>
+              </motion.h3>
 
-              <Link
-                href={service.link}
-                className="hidden group-hover:flex items-center gap-x-8 transition-all duration-500"
+              <motion.div
+                variants={{
+                  initial: { opacity: 0, x: 20, display: "none" },
+                  hover: { 
+                    opacity: 1, 
+                    x: 0, 
+                    display: "flex",
+                    transition: {
+                      duration: 0.3,
+                      ease: "easeOut",
+                      display: { delay: 0 }
+                    }
+                  }
+                }}
+                className="items-center gap-x-8"
               >
                 <div className="text-left">
                   <p className="text-sm text-gray-400">{service.linkText}</p>
-                  <p className="text-[28px] font-medium">{service.linkTitle}</p>
+                  <p className="text-2xl font-medium">{service.linkTitle}</p>
                 </div>
                 <div className="flex items-center gap-x-8">
                   <Image
@@ -111,9 +137,16 @@ const Services = () => {
                     height={80}
                     className="rounded-full object-cover"
                   />
-                  <BsArrowRight className="w-16 h-16" />
+                  <motion.div
+                    variants={{
+                      hover: { x: 10 }
+                    }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <BsArrowRight className="w-16 h-16" />
+                  </motion.div>
                 </div>
-              </Link>
+              </motion.div>
             </motion.div>
           ))}
         </div>
@@ -129,26 +162,40 @@ const Services = () => {
           className="grid grid-cols-2"
         >
           <div>
-            <h2 className="text-[68px] leading-[95px] font-semibold bg-[linear-gradient(45deg,_rgb(84,92,255),_rgb(141,149,255)_80%)] bg-clip-text text-transparent">
+            <motion.h2 
+              variants={itemVariants}
+              className="text-5xl leading-[70px] font-semibold bg-[linear-gradient(45deg,_rgb(84,92,255),_rgb(141,149,255)_80%)] bg-clip-text text-transparent"
+            >
               Creative Agency
-            </h2>
-            <div className="w-full">
-              <p className="text-2xl leading-9 my-6 text-white w-2/3">
+            </motion.h2>
+            <motion.div 
+              variants={itemVariants}
+              className="w-full"
+            >
+              <p className="text-xl leading-9 my-6 text-white w-2/3">
                 We're an award-winning creative agency based in London, focused on
                 E-Commerce, Web Design London, Digital Products, Branding and SEO.
               </p>
-            </div>
+            </motion.div>
           </div>
           <motion.div 
             variants={itemVariants}
             className="flex justify-end items-end gap-4"
           >
-            <button className="text-2xl font-medium px-12 h-[72px] w-[244px] border border-[#545CFF] rounded-[100px] whitespace-nowrap">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              className="text-2xl font-medium px-12 h-[72px] w-[244px] border border-[#545CFF] rounded-[100px] whitespace-nowrap"
+            >
               300+ Projects
-            </button>
-            <button className="text-2xl font-medium px-12 h-[72px] w-[244px] border border-[#545CFF] rounded-[100px] whitespace-nowrap">
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              className="text-2xl font-medium px-12 h-[72px] w-[244px] border border-[#545CFF] rounded-[100px] whitespace-nowrap"
+            >
               15 Awards
-            </button>
+            </motion.button>
           </motion.div>
         </motion.div>
       </div>
