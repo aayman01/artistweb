@@ -1,4 +1,20 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+import path from "path";
+
+const nextConfig = {
+  webpack(config) {
+    config.resolve.alias["@"] = path.resolve("src");
+    return config;
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "*",
+        port: "",
+      },
+    ],
+  },
+};
 
 export default nextConfig;

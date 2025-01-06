@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { motion,fadeUpVariants } from "framer-motion";
+import { motion } from "framer-motion";
 
 const AdminPage = () => {
   const router = useRouter();
@@ -25,13 +25,7 @@ const AdminPage = () => {
     <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
       <h1 className="text-7xl font-bold mb-4">Admin Panel</h1>
       <p className="text-gray-600 text-3xl mb-8">Welcome to the admin panel!</p>
-      {/* <Button
-        onClick={handleLogout}
-        className="px-6 py-4 bg-red-500 text-white rounded hover:bg-red-600 destructive"
-      >
-        Log Out
-      </Button> */}
-      <motion.div variants={fadeUpVariants}>
+      <motion.div>
         <Button
           onClick={handleLogout}
           className="relative bg-red-500 hover:bg-red-600 text-white rounded-full px-9 py-7 text-xl font-medium font-Onest overflow-hidden group transform transition-all duration-500 hover:scale-110 w-[200px] h-[60px]"

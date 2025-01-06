@@ -40,7 +40,7 @@ const Navbar = () => {
     <motion.div
       animate={controls}
       className={`fixed top-0 left-0 w-full z-50 transition-colors duration-500 ${
-        lastScrollY ? "bg-[#1111] backdrop-blur-md" : "bg-transparent"
+        lastScrollY ? "bg-white opacity-90 backdrop-blur-md" : "bg-transparent"
       }`}
     >
       <div className="flex justify-between items-center py-4 px-8">

@@ -3,7 +3,8 @@ import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import WorkSection from "@/components/WorkSection";
 import YourDigitalPartner from "@/components/YourDigitalPatner";
-import { ScrollText } from "@/components/ScrollText";
+import {ScrollText} from "@/components/ScrollText";
+import Services from "@/components/Services";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
         <NavBar />
         <HeroSection />
         <WorkSection />
+        <Services />
         <YourDigitalPartner />
         <ScrollText />
         <Footer />
