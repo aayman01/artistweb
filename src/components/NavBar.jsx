@@ -45,7 +45,7 @@ const Navbar = () => {
     >
       <div className="flex justify-between items-center py-4 px-8">
         {/* Left Section */}
-        <div className="text-2xl font-bold pl-9">
+        <div className="text-2xl font-bold pl-4">
           <div className="">
             <span className="">
               <svg viewBox="0 0 64.06 32" width="64.05999755859375" height="32">
