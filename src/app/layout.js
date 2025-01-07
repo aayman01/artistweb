@@ -1,6 +1,8 @@
 import RouteChangeWrapper from "@/components/RouteChangeWrapper";
 import "./globals.css";
 import { Onest } from "next/font/google";
+import { Suspense } from "react";
+import LoadingScreen from "@/components/LoadingScreen";
 
 const onest = Onest({
   subsets: ["latin"],
@@ -11,10 +13,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={onest.className}>
-        <RouteChangeWrapper>
-          {children}
-        </RouteChangeWrapper>
+        <Suspense fallback={<LoadingScreen />}>
+            <RouteChangeWrapper>
+              {children}
+            </RouteChangeWrapper>
+        </Suspense>
       </body>
     </html>
   );
 } 
+
