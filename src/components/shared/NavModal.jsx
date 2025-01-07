@@ -1,4 +1,3 @@
-"use client";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 
@@ -13,8 +12,8 @@ const NavModal = ({ isOpen, onClose }) => {
       {isOpen && (
         <motion.div
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
+          animate={animationConfig.enter}
+          exit={animationConfig.exit}
           className="fixed inset-0 z-50 flex items-center justify-center bg-[radial-gradient(circle_at_73%_145%,_#545cff_0%,_transparent_42%)] backdrop-blur-sm"
           onClick={onClose}
         >
@@ -95,20 +94,20 @@ const NavModal = ({ isOpen, onClose }) => {
                 </div>
               </Link>
 
-              <Link href="/" className="block">
+              <Link href="/admin" className="block">
                 <div className="group overflow-hidden">
                   <span className="text-4xl font-medium text-white relative overflow-hidden inline-block">
                     <span className="inline-block transform transition-transform duration-500 group-hover:translate-y-[-100%]">
-                      Contact Us
+                      Dashboard
                     </span>
                     <span className="absolute top-full left-0 transform transition-transform duration-500 group-hover:translate-y-[-100%]">
-                      Contact Us
+                      Dashboard
                     </span>
                   </span>
                 </div>
               </Link>
 
-              <Link href="/login" className="block">
+              <Link href={"/login"} className="block">
                 <div className="group overflow-hidden">
                   <span className="text-4xl font-medium text-white relative overflow-hidden inline-block">
                     <span className="inline-block transform transition-transform duration-500 group-hover:translate-y-[-100%]">

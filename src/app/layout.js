@@ -1,3 +1,4 @@
+import RouteChangeWrapper from "@/components/RouteChangeWrapper";
 import "./globals.css";
 import { Onest } from "next/font/google";
 
@@ -9,7 +10,11 @@ const onest = Onest({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={onest.className}>{children}</body>
+      <body className={onest.className}>
+        <RouteChangeWrapper>
+          {children}
+        </RouteChangeWrapper>
+      </body>
     </html>
   );
-}
+} 
