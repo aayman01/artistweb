@@ -1,4 +1,4 @@
-import clientPromise from "@/lib/mongoDb";
+import clientPromise from "../../lib/mongoDb";
 import { NextResponse } from "next/server";
 
 export async function POST(request) {

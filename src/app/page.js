@@ -9,7 +9,7 @@ import DigitalGoal from "@/components/DigitalGoal";
 import WeAreGood from "@/components/WeAreGood";
 import CraftingDigital from "@/components/CraftingDigital";
 import FeedBack from "@/components/FeedBack";
-import ImageAndPartner from "@/components/ImageAndPartner";
+import {ImageAndPartner} from "@/components/ImageAndPartner";
 
 export default function Home() {
   return (
