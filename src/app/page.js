@@ -8,6 +8,7 @@ import Services from "@/components/Services";
 import DigitalGoal from "@/components/DigitalGoal";
 import WeAreGood from "@/components/WeAreGood";
 import CraftingDigital from "@/components/CraftingDigital";
+import ImageAndPartner from "@/components/ImageAndpartner";
 export default function Home() {
   return (
     <>
@@ -17,6 +18,7 @@ export default function Home() {
         <WorkSection />
         <Services />
         <YourDigitalPartner />
+        <ImageAndPartner/>
         <ScrollText />
         <DigitalGoal />
         <CraftingDigital/>
