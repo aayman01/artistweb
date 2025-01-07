@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function YourDigitalPartner() {
   return (
-    <section className="flex flex-col md:flex-row justify-center items-end px-8 py-12 bg-white gap-6 mt-28">
+    <section className="flex flex-col md:flex-row justify-center items-end px-8 py-12 bg-white gap-6 my-20">
       {/* Left Section */}
       <motion.div
         className="w-1/2"

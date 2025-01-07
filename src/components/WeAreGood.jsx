@@ -11,7 +11,7 @@ const WeAreGood = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
+      transition: { duration: 1.0, ease: "easeOut" },
     },
   };
 
@@ -20,7 +20,7 @@ const WeAreGood = () => {
       className="grid grid-cols-[1fr_1.5fr] px-14 bg-white py-16 mt-16"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.3 }}
       variants={containerVariants}
     >
       {/* Left Section: Services List */}
