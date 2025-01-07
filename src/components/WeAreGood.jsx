@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Button } from "./ui/button";
+// import {motion} from "framer-motion";
 
 const WeAreGood = () => {
   // Animation variants for the container
@@ -15,16 +17,17 @@ const WeAreGood = () => {
 
   return (
     <motion.section
-      className="flex flex-col lg:flex-row justify-between items-center px-8 bg-white py-16"
+      className="grid grid-cols-[1fr_1.5fr] px-14 bg-white py-16 mt-16"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
       variants={containerVariants}
     >
       {/* Left Section: Services List */}
-      <div className="flex flex-col justify-center space-y-4 text-left w-1/2">
-        <h2 className="text-4xl font-bold text-black">We’re good at</h2>
-        <div className="text-lg text-black font-medium mt-6 space-y-2">
+      <div className="flex flex-col justify-center space-y-4">
+        <h2 className="text-5xl font-bold text-black mb-3">We’re good at</h2>
+        <h4 className="text-xm font-normal mb-3">Services</h4>
+        <div className="text-3xl text-black font-semibold mt-6 leading-[50px]">
           <p>E-Commerce</p>
           <p>Website Design</p>
           <p>Web Development</p>
@@ -35,21 +38,25 @@ const WeAreGood = () => {
       </div>
 
       {/* Right Section: Contact Card */}
-      <div className="mt-10 lg:mt-0 lg:ml-16 p-6 bg-blue-500 rounded-xl text-white text-center lg:text-left shadow-lg w-1/2">
-        <p className="text-xl font-semibold">
+      <div className=" px-6 bg-[#545cff] rounded-3xl text-white shadow-lg mt-16 pt-6">
+        <p className="text-4xl p-8 font-semibold">
           Let&apos;s start with a conversation about how we can help you! Get in
           touch, we&apos;re a nice bunch.
         </p>
-        <div className="mt-6 flex flex-col items-center lg:items-start space-y-3">
-          <button className="bg-white text-blue-500 font-medium py-2 px-6 rounded-md">
-            Let&apos;s talk
-          </button>
-          <a
-            href="tel:02071128285"
-            className="text-white text-lg font-bold hover:underline"
-          >
+        <div className=" flex items-center justify-start gap-4 px-6">
+          <motion.div>
+            <Button className="relative bg-white hover:bg-white rounded-full px-9 py-7 text-xl font-medium font-Onest overflow-hidden group transform transition-all duration-500 hover:scale-110 w-[200px] h-[60px] text-black">
+              <span className="absolute inset-0 flex items-center justify-center transform transition-transform duration-500 group-hover:translate-y-[-100%]">
+                Let's Talk
+              </span>
+              <span className="absolute inset-0 flex items-center justify-center transform translate-y-[100%] transition-transform duration-500 group-hover:translate-y-0">
+                Let's Talk
+              </span>
+            </Button>
+          </motion.div>
+          <button className="text-2xl font-medium px-12 h-[72px] border border-white/50 rounded-[100px] whitespace-nowrap">
             0207 112 82 85
-          </a>
+          </button>
         </div>
       </div>
     </motion.section>
