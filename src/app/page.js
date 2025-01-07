@@ -8,8 +8,8 @@ import Services from "@/components/Services";
 import DigitalGoal from "@/components/DigitalGoal";
 import WeAreGood from "@/components/WeAreGood";
 import CraftingDigital from "@/components/CraftingDigital";
-import ImageAndPartner from "@/components/ImageAndpartner";
 import FeedBack from "@/components/FeedBack";
+import ImageAndPartner from "@/components/ImageAndPartner";
 
 export default function Home() {
   return (
