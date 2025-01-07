@@ -1,6 +1,6 @@
 const DigitalGoal = () => {
   return (
-    <section className="px-8">
+    <section className="px-8 mb-32">
       <div className="flex items-end justify-between gap-6">
         <div className="w-1/2 space-y-10">
           <h2 className="text-5xl font-semibold leading-[70px] pb-14">

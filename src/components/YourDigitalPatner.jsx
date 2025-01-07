@@ -21,17 +21,17 @@ export default function YourDigitalPartner() {
         <div className="flex relative items-center gap-4 mt-24 justify-between">
           <div className=" flex items-center gap-4 mt-6 justify-center">
             <img
-              src="/assets/logos/BBC-logo.png"
+              src="/assets/logos/BMW-logo.png"
               alt="BBC Logo"
               className="w-16 h-16 absolute top-0 left-0 z-10"
             />
             <img
-              src="/assets/logos/BMW-logo.png"
+              src="/assets/logos/BMW.png"
               alt="BMW Logo"
               className="w-16 h-16 absolute top-0 left-8 z-20"
             />
             <img
-              src="/assets/logos/Mercedes-logo.jfif"
+              src="/assets/logos/BBC-logo.png"
               alt="Mercedes Logo"
               className="w-16 h-16 absolute top-0 left-16 z-30"
             />
