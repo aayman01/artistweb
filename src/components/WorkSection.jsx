@@ -37,7 +37,7 @@ const HorizontalScrollCarousel = () => {
     fetchWorks();
   }, []);
 
-  console.log(works)
+  // console.log(works)
 
   return (
     <section ref={targetRef} className="relative h-[300vh] bg-white">

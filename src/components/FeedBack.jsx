@@ -1,12 +1,29 @@
 'use client'
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import FeedbackCard from "./shared/FeedbackCard";
 import { ClipLoader } from "react-spinners";
+import axios from "axios";
 
 const FeedBack = () => {
-  const cards = [1, 2, 3, 4, 5];
+  const [reviews, setReviews] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchReviews = async () => {
+      try {
+        const response = await axios.get("/api/get-review");
+        setReviews(response.data);
+        setIsLoading(false);
+      } catch (error) {
+        console.error("Error fetching reviews:", error);
+        setIsLoading(false);
+      }
+    };
+
+    fetchReviews();
+  }, []);
 
   return (
     <div className="bg-[#111111]">
@@ -17,23 +34,29 @@ const FeedBack = () => {
             Client Feedback
           </h2>
           <div className="flex items-center justify-between gap-4 px-12">
-            <p className="text-2xl ">
+            <p className="text-2xl">
               We're collaborators - We build tight-knit partnerships with our
               clients.
             </p>
-            <span className=" flex items-center gap-2 text-white/50">
+            <span className="flex items-center gap-2 text-white/50">
               <ClipLoader color="#ffffff" size={35} />
-              <p className="text-xl"> Keep Scrolling</p>{" "}
+              <p className="text-xl">Keep Scrolling</p>
             </span>
           </div>
 
           {/* Feedback Cards */}
           <div className="space-y-16 mt-16">
-            {cards.map((feedback, index) => (
-              <AnimatedCard key={index}>
-                <FeedbackCard />
-              </AnimatedCard>
-            ))}
+            {isLoading ? (
+              <div className="flex justify-center">
+                <ClipLoader color="#ffffff" size={50} />
+              </div>
+            ) : (
+              reviews.map((review, index) => (
+                <AnimatedCard key={review._id || index}>
+                  <FeedbackCard review={review} />
+                </AnimatedCard>
+              ))
+            )}
           </div>
         </div>
       </div>
@@ -48,15 +71,15 @@ const AnimatedCard = ({ children }) => {
   useEffect(() => {
     if (inView) {
       controls.start({
-        scale: 1.1, // Slightly larger for a "pop" effect
+        scale: 1.1,
         opacity: 1,
-        transition: { duration: 0.8, ease: "easeInOut" }, // Smooth transition
+        transition: { duration: 0.9, ease: "easeInOut" },
       });
     } else {
       controls.start({
         scale: 0.9,
         opacity: 0.8,
-        transition: { duration: 0.8, ease: "easeInOut" }, // Smooth transition
+        transition: { duration: 0.8, ease: "easeInOut" },
       });
     }
   }, [inView, controls]);
