@@ -1,31 +1,26 @@
-import { MongoClient, ServerApiVersion } from "mongodb";
+import { MongoClient } from "mongodb";
 
-let db;
+const uri = process.env.MONGODB_URI; // MongoDB connection string
+const options = {};
 
-export const connectDB = async () => {
-  if (db) return db;
+let client;
+let clientPromise;
 
-  try {
-    const uri = process.env.MONGODB_URI;
-    
-    if (!uri) {
-      throw new Error('MongoDB URI is not defined in environment variables');
-    }
+if (!process.env.MONGODB_URI) {
+  throw new Error("Please add your Mongo URI to .env.local");
+}
 
-    const client = new MongoClient(uri, {
-      serverApi: {
-        version: ServerApiVersion.v1,
-        strict: true,
-        deprecationErrors: true,
-      },
-    });
-
-    db = client.db("Artist-web");
-    console.log("📚 Connected to database:", db.databaseName);
-
-    return db;
-  } catch (error) {
-    console.error("❌ MongoDB Connection Error:", error);
-    throw error; // Re-throw the error for proper error handling
+if (process.env.NODE_ENV === "development") {
+  // In development, use a global variable so the client is not recreated for every request
+  if (!global._mongoClientPromise) {
+    client = new MongoClient(uri, options);
+    global._mongoClientPromise = client.connect();
   }
-};
+  clientPromise = global._mongoClientPromise;
+} else {
+  // In production, create a new client for each request
+  client = new MongoClient(uri, options);
+  clientPromise = client.connect();
+}
+
+export default clientPromise;

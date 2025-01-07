@@ -163,6 +163,7 @@ const Page = () => {
               value=""
               onChange={handleTagChange}
               className="w-full px-2 py-2 border rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              required
             >
               <option value="">Select a tag...</option>
               {availableTags.map((tag, index) => (

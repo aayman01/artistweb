@@ -13,11 +13,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={onest.className}>
-        <Suspense fallback={<LoadingScreen />}>
             <RouteChangeWrapper>
               {children}
             </RouteChangeWrapper>
-        </Suspense>
       </body>
     </html>
   );

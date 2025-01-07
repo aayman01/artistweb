@@ -9,7 +9,7 @@ export default async function handler(req, res) {
     const client = await clientPromise;
     const db = client.db("Artist-web"); // Replace with your database name
 
-    const works = await db.collection("works").find({}).toArray();
+    const works = await db.collection("reviews").find({}).toArray();
 
     return res.status(200).json(works);
   } catch (error) {
