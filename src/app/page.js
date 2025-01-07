@@ -10,6 +10,7 @@ import WeAreGood from "@/components/WeAreGood";
 import CraftingDigital from "@/components/CraftingDigital";
 import ImageAndPartner from "@/components/ImageAndpartner";
 import FeedBack from "@/components/FeedBack";
+
 export default function Home() {
   return (
     <>

@@ -9,7 +9,7 @@ const FeedbackCard = ({
   return (
     <div className="w-full rounded-3xl border border-white/20 p-10 bg-none">
       <div className="space-y-14">
-        <p className="text-2xl font-semibold leading-[45px] text-white">
+        <p className="text-2xl font-medium leading-[40px] text-white">
           "{feedback}"
         </p>
 
@@ -24,8 +24,8 @@ const FeedbackCard = ({
             />
           </div>
           <div className="flex justify-between w-full items-center gap-3">
-            <span className="text-[#71777E] text-[24px]">{name}</span>
-            <span className="text-[#545CFF] text-[28px]">{companyName}</span>
+            <span className="text-[#71777E] text-xl">{name}</span>
+            <span className="text-[#545CFF] text-xl">{companyName}</span>
           </div>
         </div>
       </div>

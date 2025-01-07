@@ -2,7 +2,7 @@
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
-import FeedbackCard from "./FeedbackCard";
+import FeedbackCard from "./shared/FeedbackCard";
 import { ClipLoader } from "react-spinners";
 
 const FeedBack = () => {
@@ -66,7 +66,7 @@ const AnimatedCard = ({ children }) => {
       ref={ref}
       animate={controls}
       initial={{ scale: 0.9, opacity: 0.8 }}
-      className="w-full max-w-3xl mx-auto bg-transparent rounded-lg shadow-lg transition-transform ease-in-out"
+      className="w-full max-w-4xl mx-auto bg-transparent rounded-lg shadow-lg transition-transform ease-in-out"
     >
       {children}
     </motion.div>

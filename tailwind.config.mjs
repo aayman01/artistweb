@@ -11,6 +11,8 @@ export default {
     extend: {
       backgroundImage: {
         "gradient-text": "linear-gradient(to right, #545cff, #1f2246, #545cff)",
+        "custom-gradient":
+          "radial-gradient(circle at 73% 145%, #545cff 0%, transparent 42%)",
       },
       animation: {
         gradientMove: "gradientMove 10s linear infinite",
