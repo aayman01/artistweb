@@ -3,12 +3,12 @@
 import { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { Button } from "./ui/button";
-// import NavModal from "./shared/NavModal";
-import dynamic from "next/dynamic";
+import NavModal from "./shared/NavModal";
+// import dynamic from "next/dynamic";
 
-const NavModal = dynamic(() => import("./shared/NavModal"), {
-  ssr: false,
-});
+// const NavModal = dynamic(() => import("./shared/NavModal"), {
+//   ssr: false,
+// });
 
 const Navbar = () => {
   const [lastScrollY, setLastScrollY] = useState(0);

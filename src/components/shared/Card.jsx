@@ -10,6 +10,8 @@ const Card = ({ card }) => {
         className="w-full h-full object-cover"
         width={510}
         height={412}
+        placeholder="blur"
+        blurDataURL={image}
       />
       {card.latest && (
         <span className="absolute top-3 right-3 bg-blue-500 text-white px-3 py-1 rounded-full text-sm">

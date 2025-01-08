@@ -1,6 +1,9 @@
 "use client";
 import axios from "axios";
 import React, { useState } from "react";
+import toast from "react-hot-toast";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const Page = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +13,36 @@ const Page = () => {
     isLatest: false,
   });
   const [loading, setLoading] = useState(false);
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1
+  });
+
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut",
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    }
+  };
 
   const [availableTags, setAvailableTags] = useState([
     "Web Development",
@@ -79,50 +112,73 @@ const Page = () => {
     setLoading(true);
 
     try {
-      let imageUrl = null;
+      let image = null;
       if (formData.image) {
-        imageUrl = await uploadToImageBB(formData.image);
+        image = await uploadToImageBB(formData.image);
       }
       const finalData = {
         title: formData.title,
-        image: imageUrl,
+        image: image,
         tags: formData.tags,
-        latest: formData.isLatest
+        isLatest: formData.isLatest
       };
 
-      // console.log('Final Form Data:', finalData);
+      const response = await axios.post('/api/add-works', finalData);
+      
+      if(response.data.success) {
+        // alert("Work added successfully!");
+        toast.success("Successfully Added Work!");
 
-     await axios.post('/api/add-work', finalData).then((res) => {
-      // console.log(res);
-      alert('Work added successfully!');
-     }).catch((err) => {
-      // console.log(err);
-      alert('Error adding work. Please try again.');
-     });
-    
-      // Reset form after successful submission
-      setFormData({
-        title: "",
-        image: null,
-        tags: [],
-        isLatest: false
-      });
+        // Reset form and restore original available tags
+        setFormData({
+          title: "",
+          image: null,
+          tags: [],
+          isLatest: false,
+        });
 
+        // Reset file input
+        const fileInput = document.querySelector('input[type="file"]');
+        if (fileInput) fileInput.value = "";
+
+        // Restore all tags to available tags
+        setAvailableTags([
+          "Web Development",
+          "Mobile App",
+          "Design",
+          "UI/UX",
+        ]);
+      }
     } catch (error) {
       console.error('Error submitting form:', error);
-      alert('Error adding work. Please try again.');
+      alert(`Error adding work: ${error.response?.data?.message || error.message}`);
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="p-6 max-w-2xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6">Add New Work</h1>
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={inView ? "visible" : "hidden"}
+      variants={containerVariants}
+      className="p-6 max-w-2xl mx-auto"
+    >
+      <motion.h1 
+        variants={itemVariants}
+        className="text-3xl font-bold mb-6 text-center"
+      >
+        Add New Work
+      </motion.h1>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <motion.form 
+        variants={itemVariants}
+        onSubmit={handleSubmit} 
+        className="space-y-4"
+      >
         {/* Title Input */}
-        <div>
+        <motion.div variants={itemVariants}>
           <label className="block mb-2">Title</label>
           <input
             type="text"
@@ -133,10 +189,10 @@ const Page = () => {
             placeholder="Enter work title"
             required
           />
-        </div>
+        </motion.div>
 
         {/* Image Upload */}
-        <div>
+        <motion.div variants={itemVariants}>
           <label className="block mb-2">Upload Image</label>
           <input
             type="file"
@@ -146,10 +202,13 @@ const Page = () => {
             className="w-full p-2 border rounded"
             required
           />
-        </div>
+        </motion.div>
 
         {/* Tags Selection */}
-        <div className="space-y-2">
+        <motion.div 
+          variants={itemVariants}
+          className="space-y-2"
+        >
           <label className="block mb-2">Select Tags</label>
           <div className="relative">
             <select
@@ -182,10 +241,13 @@ const Page = () => {
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Latest Toggle */}
-        <div className="flex items-center">
+        <motion.div 
+          variants={itemVariants}
+          className="flex items-center"
+        >
           <label className="mr-3">Latest Work</label>
           <label className="relative inline-flex items-center cursor-pointer">
             <input 
@@ -197,10 +259,11 @@ const Page = () => {
             />
             <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
           </label>
-        </div>
+        </motion.div>
 
-        {/* Updated Submit Button with Loading State */}
-        <button
+        {/* Submit Button */}
+        <motion.button
+          variants={itemVariants}
           type="submit"
           disabled={loading}
           className={`w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 ${
@@ -208,9 +271,9 @@ const Page = () => {
           }`}
         >
           {loading ? 'Adding Work...' : 'Add Work'}
-        </button>
-      </form>
-    </div>
+        </motion.button>
+      </motion.form>
+    </motion.div>
   );
 };
 

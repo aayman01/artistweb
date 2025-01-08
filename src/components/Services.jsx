@@ -1,10 +1,30 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link";
+import { useInView } from "react-intersection-observer";
 import { BsArrowRight } from "react-icons/bs";
 import { motion } from "framer-motion";
 
 const Services = () => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.2
+  });
+
+  const fadeUpVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 100 
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut"
+      }
+    }
+  };
+
   const services = [
     {
       id: 1,
