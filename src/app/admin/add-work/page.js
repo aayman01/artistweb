@@ -1,4 +1,5 @@
 "use client";
+import axios from "axios";
 import React, { useState } from "react";
 
 const Page = () => {
@@ -80,31 +81,25 @@ const Page = () => {
     try {
       let imageUrl = null;
       if (formData.image) {
-        // Upload image to ImageBB first
         imageUrl = await uploadToImageBB(formData.image);
       }
-
-      // Prepare the final data with the image URL
       const finalData = {
         title: formData.title,
-        imageUrl: imageUrl,
+        image: imageUrl,
         tags: formData.tags,
-        isLatest: formData.isLatest
+        latest: formData.isLatest
       };
 
-      console.log('Final Form Data:', finalData);
+      // console.log('Final Form Data:', finalData);
 
-      // Here you would send finalData to your backend
-      /*
-      const response = await fetch('/api/works', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(finalData)
-      });
-      */
-
+     await axios.post('/api/add-work', finalData).then((res) => {
+      // console.log(res);
+      alert('Work added successfully!');
+     }).catch((err) => {
+      // console.log(err);
+      alert('Error adding work. Please try again.');
+     });
+    
       // Reset form after successful submission
       setFormData({
         title: "",
@@ -112,8 +107,6 @@ const Page = () => {
         tags: [],
         isLatest: false
       });
-      
-    //   alert('Work added successfully!');
 
     } catch (error) {
       console.error('Error submitting form:', error);
@@ -163,7 +156,6 @@ const Page = () => {
               value=""
               onChange={handleTagChange}
               className="w-full px-2 py-2 border rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-              required
             >
               <option value="">Select a tag...</option>
               {availableTags.map((tag, index) => (
