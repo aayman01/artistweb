@@ -72,6 +72,7 @@ const Page = () => {
               client_name: "",
               company_name: "",
               company_logo: null,
+              feedback: "",
             });
           }
         })
