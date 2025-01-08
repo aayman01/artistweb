@@ -123,7 +123,10 @@ const Page = () => {
         isLatest: formData.isLatest
       };
 
-      const response = await axios.post('/api/add-works', finalData);
+      const response = await axios.post(
+        "https://artistweb-drab.vercel.app/api/add-works",
+        finalData
+      );
       
       if(response.data.success) {
         // alert("Work added successfully!");

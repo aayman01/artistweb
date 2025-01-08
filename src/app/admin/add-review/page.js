@@ -63,18 +63,21 @@ const Page = () => {
       };
       console.log(finalData);
 
-      await axios.post('/api/add-feedback', finalData).then((res) => {
-        if(res?.data.success){
-          toast.success("Successfully Added Review!");
-          setFormData({
-            client_name: "",
-            company_name: "",
-            company_logo: null,
-          });
-        }
-      }).catch((err) => {
-        toast.error('Error adding review', err.message);
-      });
+      await axios
+        .post("https://artistweb-drab.vercel.app/api/add-feedback", finalData)
+        .then((res) => {
+          if (res?.data.success) {
+            toast.success("Successfully Added Review!");
+            setFormData({
+              client_name: "",
+              company_name: "",
+              company_logo: null,
+            });
+          }
+        })
+        .catch((err) => {
+          toast.error("Error adding review", err.message);
+        });
       
 
     } catch (error) {
