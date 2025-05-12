@@ -46,7 +46,7 @@ export default function YourDigitalPartner() {
   return (
     <section 
       ref={ref}
-      className="flex flex-col md:flex-row justify-center items-end px-8 py-12 bg-white gap-6 my-20"
+      className="flex flex-col md:flex-row justify-center items-center px-8 py-12 bg-white gap-6 my-20 max-w-[1440px] mx-auto"
     >
       {/* Left Section */}
       <motion.div

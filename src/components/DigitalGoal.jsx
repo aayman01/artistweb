@@ -44,7 +44,7 @@ const DigitalGoal = () => {
   };
 
   return (
-    <section ref={ref} className="px-8 mb-32">
+    <section ref={ref} className="px-8 mb-32 max-w-[1440px] mx-auto">
       <div className="flex items-end justify-between gap-6">
         <motion.div 
           className="w-1/2 space-y-10"
