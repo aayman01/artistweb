@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 const ImageAndPartner = () => {
   // Split text into words for individual animation
-  const text = "From ambitious startups to global companies, we partner with great businesses and industry leaders.";
+  const text = "From ambitious startups to global companies, we partner with great businesses and industry.";
   const words = text.split(" ");
   
   return (
